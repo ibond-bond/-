@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 np.random.seed(1000)
-# 此处采用模拟100位用户的数据，现实应用可根据统计的真实数据进行计算
+# 此处采用模拟200位用户的数据，现实应用可根据统计的真实数据进行计算
 n_samples = 200
 data = {
     '用户ID': [f'用户{i+1:02d}' for i in range(n_samples)],
@@ -92,7 +92,7 @@ def determine_risk_level(risk_index):
     elif 75 < risk_index:
         return "极高风险"
 ######三、交互式获取用户手动输入的评分
-print("【用户风险评估系统】")
+print("【用户分级风险预警评估模型】")
 print("请根据提示，依次输入目标用户的各项风险因子评分")
 print()
 
@@ -144,4 +144,5 @@ for i, (factor, score) in enumerate(zip(risk_factors, user_scores)):
     print(f"  {factor}: {score}")
 print(f"\n计算出的风险指数 Y = {user_risk_index:.2f}")
 print(f"该用户的风险等级为: 【{user_risk_level}】")
+
 print("="*50)
